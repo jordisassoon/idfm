@@ -1,11 +1,10 @@
 import React from 'react';
 import links from './data/connections_ext.json'
-import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
+import {ForceGraph3D} from 'react-force-graph';
 
 function Network() {
     const nodesSet = new Set();
     const split_links = [];
-    const colors = [];
 
     for (const line in links){
         for (const pair of links[line]) {
@@ -34,6 +33,9 @@ function Network() {
         linkColor="color"
         linkOpacity={0.8}
         linkLabel="group"
+        width={window.innerWidth}
+        height={window.innerHeight * 0.6}
+        backgroundColor='#060412'
     />);
 }
 
