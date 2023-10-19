@@ -1,0 +1,31 @@
+svg {
+    display: block;
+    margin-left: 0%;
+    padding-left: 2%;
+    margin-right: 0%;
+    font-family: "Times New Roman";
+    font-size: 12px;
+}
+
+.arrondissements {
+    fill: none;
+    stroke: #000;
+    stroke-linejoin: round;
+}
+
+.legend text.label {
+    fill: #fff;
+    font-family : "Times New Roman";
+    font-size: 12px;
+
+}
+.caption {
+    fill: #fff;
+    text-anchor: start;
+    font-size: 14px;
+}
+
+.label {
+    font-family : "Times New Roman";
+    font-size: 10px;
+}

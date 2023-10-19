@@ -1,5 +1,7 @@
 import './App.css';
 import Network from './network';
+import Map from './map';
+
 
 function App() {
   return (
@@ -10,9 +12,10 @@ function App() {
           <Network></Network>
         </div>
         <div className='row-aligned'>
-          <div className='column-aligned'>
-            <h1>Map</h1>
-            <h3>--insert map</h3>
+          <div className='column-aligned' id ="map">
+            <h1> HeatMap</h1>
+            <p>Heatmap of Ile de France based on the number of stations per arrondissement</p>
+            <Map/>
           </div>
           <div className='column-aligned'>
             <h1>Stats</h1>

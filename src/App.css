@@ -6,7 +6,8 @@
 .column-aligned{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  padding-left: 0%;
 }
 
 .network{
@@ -16,8 +17,12 @@
 
 .row-aligned{
   display: flex;
-  justify-content: space-around;
+  justify-content :space-between;
   flex-direction: row;
+}
+
+#main {
+  padding-left: 0%;
 }
 
 h1{
@@ -28,4 +33,14 @@ h1{
 
 h3{
   color: white;
+} 
+
+p {
+  color : #fff;
+  text-align: center;
 }
+
+* {
+  font-family: "Times New Roman", Times, serif;
+ 
+ }
