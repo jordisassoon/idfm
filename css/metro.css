@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+h3 {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+button {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button img {
+    width: 50px;
+    height: 50px;
+}
+
+#parisMap,
+#stats,
+#bubblechart,
+#chart {
+    width: 50%;
+    height: 550px;
+    float: left;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#piechart,
+#clickBubble {
+    height: 50%;
+    box-sizing: border-box;
+}
+
+#stationTitle {
+    margin-top: 5px;
+}
+
+
+
+
+

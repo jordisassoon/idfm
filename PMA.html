@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>INF552 - 2022 - PC 04</title>
+        <!-- https://d3js.org/ -->
+        <script type="text/javascript" src="js/d3.v7.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+        <script type="text/javascript" src="js/pma.js"></script>
+        <style>
+svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    font-size: 10px;
+    margin: 0 auto;
+}
+
+
+.boxplot {
+    stroke-width:1.2px;
+    stroke:#666;
+    fill:none;
+}
+        </style>
+    </head>
+
+    <body onload="createViz();">
+        <div id="main">
+            <label for="Year">Select a Year:</label>
+            <select id="YearSelector">
+                <option value="2023">2023</option>
+                <option value="2022" selected>2022</option>
+            </select>
+        </div>
+    </body>
+
+</html>
