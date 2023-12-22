@@ -1,9 +1,29 @@
 body {
     background-color: #121212;
-    padding-left: 60px; /* Same as the width of the sidenav */
+    font: 0.9rem Verdana, sans-serif; 
+}
+
+#main {
     text-align: center;
-    font: 1.0rem "Fira Sans", sans-serif;
-    transition: padding-left .5s;
+    transition: margin-left 0.5s;
+    padding: 25px 20px 20px 20px;
+}
+
+.title {
+    color: #9171f8;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-decoration: underline white 2px;
+}
+
+.small-text {
+    color: white;
+    font-weight: lighter;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 button {
@@ -11,6 +31,9 @@ button {
     border-width: 2px;
     border-radius: 4px;
     border-color: #121212;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 button:hover {
@@ -33,7 +56,7 @@ button:hover {
     overflow: auto;
     background-color: #1a1625;
     border-style: solid;
-    border-width: 10px;
+    border-width: 16px;
     border-radius: 4px;
     border-color: #1a1625;
     color: #ba9ffb;
@@ -45,27 +68,7 @@ button:hover {
     border-width: 3px;
     border-radius: 4px;
     border-color: #ba9ffb;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #a688fa;
-    color: #1a1625;
-    font-weight: bold;
+    margin-top: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -94,8 +97,8 @@ li a:hover {
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
-    left: -20;
-    background-color: #ba9ffb; /* Black*/
+    left: 0;
+    background-color: #9171f8; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -146,11 +149,10 @@ li a:hover {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #ba9ffb;
+    background-color: #9171f8;
     overflow-x: hidden;
     padding-top: 20px;
 }
-
 
 .hamburger {
     right: 20px;
