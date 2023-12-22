@@ -309,13 +309,15 @@ function getStatistics() {
             .attr("text-anchor", "middle")
             .attr("font-weight", "bold")
             .attr("y", -15)
-            .text("Nb Stations");
+            .text("Number of Stations")
+            .style("fill", "white") ;
         
         // Add x-axis title
         svg.append("text")
             .attr("text-anchor", "middle")
             .attr("transform", "translate(" + (width / 2) + "," + (height + margin.bottom - 10) + ")")
-            .text("Mise en Service Year");
+            .text("Establishment Year")
+            .style("fill", "white");
 
         // Add y-axis title
         svg.append("text")
@@ -323,7 +325,8 @@ function getStatistics() {
             .attr("transform", "rotate(-90)")
             .attr("x", 0 - (height / 2))
             .attr("y", 0 - margin.left+20)
-            .text("Length in Kilometers");
+            .text("Length in Kilometers")
+            .style("fill", "white");
         
         //Create SVG definitions for patterns
         var defs = svg.append("defs");
@@ -425,12 +428,13 @@ function getStatistics() {
             .attr("cy", function (d) { return radiusScale(d); })
             .attr("r", function (d) { return radiusScale(d); })
             .style("fill", "none")
-            .style("stroke", "black");
+            .style("stroke", "white");
         
         legend.selectAll("legendLabels")
             .data(legendCircles)
             .enter()
             .append("text")
+            .style("fill", "white")
             .attr("x",55)
             .attr("y", function (d,i) {return (i+0.5)*20 +10})
             .text(function (d) { return d; });
@@ -548,6 +552,7 @@ function drawPieChart(data) {
         .data(pie(filteredData))
         .enter()
         .append("text")
+        .style("fill", "white")
         .attr("transform", (d) => "translate(" + arc2.centroid(d) + ")")
         .attr("dy", ".35em")
         .style("text-anchor", "middle")
@@ -647,6 +652,7 @@ function drawBubbleChart() {
             .data(uniqueArrondissements)
             .enter()
             .append("text")
+            .style("fill", "white")
             .attr("x", 30)
             .attr("y", (d, i) => i * 18 + 5)
             .attr("dy", "0.75em")

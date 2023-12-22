@@ -19,7 +19,7 @@ const metro_colors = {
 
 const placement = {
     coord: new itowns.Coordinates('EPSG:4326', 2.351323, 48.856712),
-    range: 7000,
+    range: 5000,
     tilt: 45,
 };
 
