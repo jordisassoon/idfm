@@ -30,7 +30,8 @@ function vizualisation(data) {
     .attr("transform", "translate(60,0)")
     .call(d3.axisLeft(yScale).ticks())
     .selectAll("text")
-    .style("text-anchor", "end");
+    .style("text-anchor", "end")
+    .style("fill", "white");
     
     // y-axis label
     
@@ -40,7 +41,8 @@ function vizualisation(data) {
         .attr("x", 0)
         .attr("transform", `rotate(-90) translate(-${ctx.h/2 + 100},8)`)
         .classed("axisLb", true)
-        .text("Average air pollution concentration (PM10) [µg/m³]");
+        .text("Average air pollution concentration (PM10) [µg/m³]")
+        .style("fill", "white");
 
     d3.select("#bkgG").append("line")          
       .style("stroke", "red") 
@@ -82,14 +84,15 @@ function plotStationDistribution(station, points, centerX, yScale){
     .datum(station)
     .attr("transform", `translate(0,${ctx.h-40})`)
     .style("text-anchor", "middle")
-    .text((d) => (`${d}`));
+    .text((d) => (`${d}`))
+    .style("fill", "white");
     
     
     pointsG.append("text")
           .attr("transform", `translate(0,${ctx.h-20})`)
           .style("text-anchor", "middle")
           .text(points.length)
-          .attr("fill", "gray");
+          .style("fill", "white");
     
     // //density plot
     
@@ -103,7 +106,8 @@ function plotStationDistribution(station, points, centerX, yScale){
         .attr("transform", function(d){return "translate(" + (Math.random()*ctx.JITTER_W/2 - ctx.JITTER_W / 4) + "," + yScale(d.PM10) + ")";})
         .style("fill", d => ctx.colorScale(d.PM10))
         .append("title")
-        .text((d) => (`Date: ${d.Date}\nPM10 = ${d.PM10} µg/m³`));
+        .text((d) => (`Date: ${d.Date}\nPM10 = ${d.PM10} µg/m³`))
+        .style("fill", "white");
         
     boxPlot(points, pointsG, yScale)    
 };
@@ -121,7 +125,7 @@ function addLegend() {
       .shapeHeight(10)
       .cells(5)  // Adjust the number of legend cells as needed
       .title("PM10 Dangerosity on Human's Health")
-      .labels(["V. Good", "Good", "Medium", "Bad", "V. Bad"]);;
+      .labels(["V. Good", "Good", "Medium", "Bad", "V. Bad"]);
 
   legend.call(legendColor);
 }
@@ -178,9 +182,9 @@ function boxPlot(data, sG, yScale){
 
 function loadData() {
 
-    d3.select("#main svg").remove();
+    d3.select("#vis svg").remove();
 
-    var svgEl = d3.select("#main").append("svg");
+    var svgEl = d3.select("#vis").append("svg");
     svgEl.attr("width", ctx.w);
     svgEl.attr("height", ctx.h);
     var rootG = svgEl.append("g").attr("id", "rootG");

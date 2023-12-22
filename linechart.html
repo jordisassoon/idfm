@@ -49,6 +49,7 @@
         <div id="mySidenav" class="sidenav" onmouseleave="closeNav()">
             <h1 class="navmenu">Navigation Menu</h1>
             <a href="maps.html">Network Maps</a>
+            <a href="metro.html">Metro Statistics</a>
             <a>Air Quality Line Chart</a>
             <a href="correlations.html">Air Quality Correlation Plots</a>
             <a href="pma.html">Air Quality Box Plot</a>
@@ -63,11 +64,19 @@
             </div>
         </span>
         <div id="main">
+            <h1 class="title">The Paris Metro Project</h1>
             <div class="content-container">
                 <div class="row">
                     <div id="gridLayout">
                         <div id="viz">
-                            <h3> Plot allowing comparaison of air quality data between different stations over the years</h3>
+                            <h2 class="big-text">Air Quality Line Chart</h2>
+                            <p class="small-text">
+                                Different stations are managed differently, some are quite polluted, others are surprisingly healthy!
+                                Below you can see a timeline plot comparing the level of different air quality indicators.
+                            </p>
+                            <p class="small-text">
+                                Select a year, a station, or an indicator. Missing data entries have been imputed with the mean.
+                            </p>
                             <label for="Year">Select a Year:</label>
                             <select id="YearSelector">
                                 <option value="2023" selected>2023</option>

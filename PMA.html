@@ -6,6 +6,9 @@
         <!-- https://d3js.org/ -->
         <script type="text/javascript" src="js/d3.v7.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Your code -->
+        <script type="text/javascript" src="js/navbar.js"></script>
         <script type="text/javascript" src="js/pma.js"></script>
         <style>
 svg {
@@ -26,13 +29,42 @@ svg {
         </style>
     </head>
 
-    <body onload="createViz();">
+    <body onload="createViz(); openNav()">
+        <div id="mySidenav" class="sidenav" onmouseleave="closeNav()">
+            <h1 class="navmenu">Navigation Menu</h1>
+            <a>Network Maps</a>
+            <a href="metro.html">Metro Statistics</a>
+            <a href="linechart.html">Air Quality Line Chart</a>
+            <a href="correlations.html">Air Quality Correlation Plots</a>
+            <a href="pma.html">Air Quality Box Plot</a>
+        </div>
+          
+        <!-- Use any element to open the sidenav -->
+        <span id="navspan" onmouseenter="openNav()">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </span>
         <div id="main">
-            <label for="Year">Select a Year:</label>
-            <select id="YearSelector">
-                <option value="2023">2023</option>
-                <option value="2022" selected>2022</option>
-            </select>
+            <h1 class="title">The Paris Metro Project</h1>
+            <div class="content-container">
+                <h2 class="big-text">Air Quality Box Plot</h2>
+                <p class="small-text">
+                    PMA10 indicates molecules smaller than 10 micrometers. They can be harmful upon inhalation.
+                    The european standard for a healthy concentration of PMA10 in the air is around 50 mu g / m3.
+                </p>
+                <p class="small-text">
+                    Below you can see a box plot comparing the level of PMA10 per station.
+                </p>
+                <label for="Year">Select a year:</label>
+                <select id="YearSelector">
+                    <option value="2023">2023</option>
+                    <option value="2022" selected>2022</option>
+                </select>
+                <div id="vis"></div>
+            </div>
         </div>
     </body>
 

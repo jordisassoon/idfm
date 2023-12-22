@@ -1,126 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="js/d3.v7.min.js"></script>
-    <script type="text/javascript" src="js/metro.js"></script>
-    <link rel="stylesheet" href="css/metro.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <!-- https://vega.github.io/vega-lite/ -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
-
-    <title>Paris Metro Lines</title>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/d3.v7.min.js"></script>
+        <script type="text/javascript" src="js/metro.js"></script>
+        <script type="text/javascript" src="js/navbar.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/metro.css">
     
-</head>
-<body onload="createViz()">
-
-    <h1>Paris Metro Lines</h1>
-
-    <button onclick="showLine('0')">
-        <img src="images/metro.png" alt="Metros">
-    </button>
-
-    <button onclick="showLine('1')">
-        <img src="images/1.png" alt="Line 1">
-    </button>
-
-    <button onclick="showLine('2')">
-        <img src="images/2.png" alt="Line 2">
-    </button>
-
-    <button onclick="showLine('3')">
-        <img src="images/3.png" alt="Line 3">
-    </button>
-
-    <button onclick="showLine('3bis')">
-        <img src="images/3bis.png" alt="Line 3bis">
-    </button>
-
-    <button onclick="showLine('4')">
-        <img src="images/4.png" alt="Line 4">
-    </button>
-
-    <button onclick="showLine('5')">
-        <img src="images/5.png" alt="Line 5">
-    </button>
-
-    <button onclick="showLine('6')">
-        <img src="images/6.png" alt="Line 6">
-    </button>
-
-    <button onclick="showLine('7')">
-        <img src="images/7.png" alt="Line 7">
-    </button>
-
-    <button onclick="showLine('7bis')">
-        <img src="images/7bis.png" alt="Line 7bis">
-    </button>
-
-    <button onclick="showLine('8')">
-        <img src="images/8.png" alt="Line 8">
-    </button>
-
-    <button onclick="showLine('9')">
-        <img src="images/9.png" alt="Line 9">
-    </button>
-
-    <button onclick="showLine('10')">
-        <img src="images/10.png" alt="Line 10">
-    </button>
-
-    <button onclick="showLine('11')">
-        <img src="images/11.png" alt="Line 11">
-    </button>
-
-    <button onclick="showLine('12')">
-        <img src="images/12.png" alt="Line 12">
-    </button>
-
-    <button onclick="showLine('13')">
-        <img src="images/13.png" alt="Line 13">
-    </button>
-
-    <button onclick="showLine('14')">
-        <img src="images/14.png" alt="Line 14">
-    </button>
-
-    <div id="parisMap">
-        <h3> 2D Map rendering line Metros in Paris </h3>
-    </div>
-    <div id="stats">
-        <h3 id="statstitle"> Timeline of year establishment of metro lines in Paris </h3>
-        <button onclick="resetTransition()">Reset Transition</button>
-    </div>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+        <!-- https://vega.github.io/vega-lite/ -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+        <script src="node_modules/itowns/dist/itowns.js"></script>
+        <title>Vector data on ground</title>
+    </head>
+    <body onload="createViz(); openNav()">
+        <div id="mySidenav" class="sidenav" onmouseleave="closeNav()">
+            <h1 class="navmenu">Navigation Menu</h1>
+            <a href="maps.html">Network Maps</a>
+            <a>Metro Statistics</a>
+            <a href="linechart.html">Air Quality Line Chart</a>
+            <a href="correlations.html">Air Quality Correlation Plots</a>
+            <a href="pma.html">Air Quality Box Plot</a>
+        </div>
+          
+        <!-- Use any element to open the sidenav -->
+        <span id="navspan" onmouseenter="openNav()">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </span>
+        <div id="main">
+            <h1 class="title">The Paris Metro Project</h1>
+            <div class="content-container">
+                <div class="column">
+                    <h2 class="big-text">Metro Statistics</h2>
+                    <p class="small-text">The Paris metro network is complex. The visualizations here breaks down some high-level statistics on lines and stations: busyness, size, development, and more.</p>
+                    <p class="small-text">To refresh your metro line memory, the map below shows a top-down view of Paris. Pick a metro line and see how the graphs change!</p>
+                    <div id="parisMap" style="height: 80%;"></div>
+                    <div class="light-container">
+                        <div class="column">
+                            <button onclick="showLine('0')">
+                                <img src="images/metro.png" alt="Metros">
+                            </button>
+                            <button onclick="showLine('1')">
+                                <img src="images/1.png" alt="Line 1">
+                            </button>
+                            <button onclick="showLine('2')">
+                                <img src="images/2.png" alt="Line 2">
+                            </button>
+                            <button onclick="showLine('3')">
+                                <img src="images/3.png" alt="Line 3">
+                            </button>
+                            <button onclick="showLine('3bis')">
+                                <img src="images/3bis.png" alt="Line 3bis">
+                            </button>
+                            <button onclick="showLine('4')">
+                                <img src="images/4.png" alt="Line 4">
+                            </button>
+                            <button onclick="showLine('5')">
+                                <img src="images/5.png" alt="Line 5">
+                            </button>
+                            <button onclick="showLine('6')">
+                                <img src="images/6.png" alt="Line 6">
+                            </button>
+                            <button onclick="showLine('7')">
+                                <img src="images/7.png" alt="Line 7">
+                            </button>
+                            <button onclick="showLine('7bis')">
+                                <img src="images/7bis.png" alt="Line 7bis">
+                            </button>
+                            <button onclick="showLine('8')">
+                                <img src="images/8.png" alt="Line 8">
+                            </button>
+                            <button onclick="showLine('9')">
+                                <img src="images/9.png" alt="Line 9">
+                            </button>
+                            <button onclick="showLine('10')">
+                                <img src="images/10.png" alt="Line 10">
+                            </button>
+                            <button onclick="showLine('11')">
+                                <img src="images/11.png" alt="Line 11">
+                            </button>
+                            <button onclick="showLine('12')">
+                                <img src="images/12.png" alt="Line 12">
+                            </button>
+                            <button onclick="showLine('13')">
+                                <img src="images/13.png" alt="Line 13">
+                            </button>
+                            <button onclick="showLine('14')">
+                                <img src="images/14.png" alt="Line 14">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3 class="medium-text">Timeline of Paris Metro Lines</h3>
+                    <p class="small-text">
+                        Metro lines have evolved over the years. This interactive graph shows the year of establishment,
+                        and last year the line was extended. Double-click on a bubble to see the transition.
+                    </p>
+                    <p class="small-text">
+                        For a idea of line length, the bubble size depends on the number of stations it contains (hover over the bubble).
+                        You can also see the total length of the line in kilometers.
+                    </p>
+                    <button onclick="resetTransition()">Reset Transition</button>
+                    <div id="stats"></div>
     
-    <div id="bubblechart">
-        <h3 id="bubbleTitle"></h3>
-        <label for="Year">Select a Year:</label>
-                <select id="YearSelector">
-                    <option value="2021" selected >2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
-                    <option value="2014">2014</option>
-                    <option value="2013">2013</option>
-                </select>
-    </div>
-    <div id="chart">
-        <div id="piechart">
-            <h3 id="pieTitle"> </h3>
+                    <div id="removable">
+                        <h3 class="medium-text">Bubble Chart of Station Busyness</h3>
+                        <p class="small-text">
+                            Stations vary highly in their importance. The bubble chart tries to create a ranking of most to least important stations, based on the yearly traffic.
+                            The color of each bubble depends on the arrondissement the station is in. Hover over th bubbles!
+                        </p>
+                        <label for="Year">Select a year:</label>
+                        <select id="YearSelector">
+                            <option value="2021" selected >2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                        </select>
+                        <div id="bubblechart">
+                            <h3 id="bubbleTitle"></h3>
+                        </div>
+                        <h3 class="medium-text">Pie Chart of Line Traffic</h3>
+                        <p class="small-text">
+                            Lines also vary highly in their importance. 
+                            The pie chart tries to create a ranking of most to least important lines, based on the yearly traffic. 
+                            Hover over th bubbles!
+                        </p>
+                        <div id="chart">
+                            <div id="piechart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div id="clickBubble">
-            <h3 id="stationTitle"></h3>
-            <div id="clickBubbleViz"></div>
-        </div>
-    </div>
-</body>
+    <script type="text/javascript" src="./js/raster.js"></script>
+    </body>
 </html>

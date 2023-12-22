@@ -310,7 +310,7 @@ function getStatistics() {
             .attr("font-weight", "bold")
             .attr("y", -15)
             .text("Number of Stations")
-            .style("fill", "white") ;
+            .style("fill", "white");
         
         // Add x-axis title
         svg.append("text")

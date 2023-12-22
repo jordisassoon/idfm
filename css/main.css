@@ -26,6 +26,24 @@ body {
     margin-top: 20px;
 }
 
+.big-text {
+    color: white;
+    font-weight: lighter;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-decoration: underline white 1px;
+    text-align: left;
+}
+
+.medium-text {
+    color: #ba9ffb;
+    font-weight: lighter;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-decoration: underline white 2px;
+}
+
 button {
     border-style: solid;
     border-width: 2px;
@@ -118,6 +136,7 @@ button:hover {
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: white;
+    font-size: larger;
 }
 
 /* Position and style the close button (top right corner) */
