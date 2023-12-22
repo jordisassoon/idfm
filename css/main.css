@@ -133,6 +133,10 @@ button:hover {
     transition: 0.3s;
 }
 
+.legend {
+    fill: white;
+ }
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
     color: white;
