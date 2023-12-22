@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>INF552 - 2023 - PC 03</title>
+        <!-- https://d3js.org/ -->
+        <script type="text/javascript" src="js/d3.v7.min.js"></script>
+        <!-- https://vega.github.io/vega-lite/ -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Your code -->
+        <script type="text/javascript" src="js/navbar.js"></script>
+        <script async src="js/compare.js"></script>
+        <style>
+
+#gridLayout {
+    width:100%;
+    grid-template-columns: 7fr 3fr;
+}
+
+
+#discOverTime {
+    grid-area: 2 / 2 / 3 / 3;
+    border-left:2px solid #DDD;
+    border-top:2px solid #DDD;
+    text-align: center;
+    padding-bottom:1em;
+}
+
+#vmagByDetect {
+    grid-area: 1 / 2 / 2 / 3;
+    border-left:2px solid #DDD;
+    padding-top:1em;
+    text-align: center;
+}
+
+.formLb {
+    font-size:70%;
+}
+.vega-embed {
+  position: relative;
+}
+        </style>
+    </head>
+
+    <body onload="createViz(); openNav()">
+        <div id="mySidenav" class="sidenav" onmouseleave="closeNav()">
+            <h1 class="navmenu">Navigation Menu</h1>
+            <a href="maps.html">Network Maps</a>
+            <a href="metro.html">Metro Statistics</a>
+            <a>Air Quality Line Chart</a>
+            <a href="correlations.html">Air Quality Correlation Plots</a>
+            <a href="pma.html">Air Quality Box Plot</a>
+        </div>
+
+        <!-- Use any element to open the sidenav -->
+        <span id="navspan" onmouseenter="openNav()">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </span>
+        <div id="main">
+            <h1 class="title">The Paris Metro Project</h1>
+            <div class="content-container">
+                <div class="row">
+                    <div id="gridLayout">
+                        <div id="viz">
+                            <h2 class="big-text">Air Quality Line Chart</h2>
+                            <p class="small-text">
+                                Different stations are managed differently, some are quite polluted, others are surprisingly healthy!
+                                Below you can see a timeline plot comparing the level of different air quality indicators.
+                            </p>
+                            <p class="small-text">
+                                Select a year, a station, or an indicator. Missing data entries have been imputed with the mean.
+                            </p>
+                            <label for="Year">Select a Year:</label>
+                            <select id="YearSelector">
+                                <option value="2023" selected>2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                            </select>
+                            <label for="plot">Select a Plot:</label>
+                            <select id="plotSelector">
+                                <option value="NO" >NO</option>
+                                <option value="NO2" >NO2</option>
+                                <option value="PM10" >PM10</option>
+                                <option value="TEMP" selected>Temperature</option>
+                                <option value="HUMI">Humidity</option>
+                                <option value="CO2">CO2</option>
+                            </select>
+                            <label for="station">Select a Station:</label>
+                            <select id="stationSelector">
+                                <option value="all" selected></option>All</option>
+                                <option value="Franklin D Roosevelt" >Franklin D Roosevelt</option>
+                                <option value="Auber">Auber</option>
+                                <option value="Chatelet">Chatelet</option>
+                                <option value="Chatelet RER A">Chatelet RER A</option>
+                                <option value="Nation RER A">Nation RER A</option>
+                            </select>
+                            <div class="light-container" style="padding: 20px 0px 20px 0px;">
+                                <div id="myviz"></div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </body>
+
+</html>

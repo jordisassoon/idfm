@@ -1,0 +1,198 @@
+body {
+    background-color: #121212;
+    font: 0.9rem Verdana, sans-serif; 
+}
+
+#main {
+    text-align: center;
+    transition: margin-left 0.5s;
+    padding: 25px 20px 20px 20px;
+}
+
+.title {
+    color: #9171f8;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-decoration: underline white 2px;
+}
+
+.small-text {
+    color: white;
+    font-weight: lighter;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.big-text {
+    color: white;
+    font-weight: lighter;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-decoration: underline white 1px;
+    text-align: left;
+}
+
+.medium-text {
+    color: #ba9ffb;
+    font-weight: lighter;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-decoration: underline white 2px;
+}
+
+button {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    border-color: #121212;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: #ba9ffb;
+}
+
+.column {
+    flex: content;
+    flex-direction: column;
+}
+
+.row {
+    flex: content;
+    flex-direction: row;
+}
+
+.content-container {
+    width: auto;
+    display: block;
+    overflow: auto;
+    background-color: #1a1625;
+    border-style: solid;
+    border-width: 16px;
+    border-radius: 4px;
+    border-color: #1a1625;
+    color: #ba9ffb;
+}
+
+.light-container {
+    background-color: #575757;
+    border-style: dashed;
+    border-width: 3px;
+    border-radius: 4px;
+    border-color: #ba9ffb;
+    margin-top: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #282828;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #9171f8;
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #7a5af5;
+}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #9171f8; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+  
+/* The navigation menu links */
+.sidenav a {
+    padding: 20px 8px 8px 32px;
+    text-decoration: none;
+    text-align: left;
+    font-size: 16px;
+    color: #121212;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: white;
+    font-size: larger;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 10px;}
+}
+
+.navmenu {
+    color: #121212;
+    padding: 20px 8px 8px 32px;
+    transition: 0.3s;
+}
+
+  /* The sidenav */
+#navspan {
+    height: 100%;
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #9171f8;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.hamburger {
+    right: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;	
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+}
+
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}

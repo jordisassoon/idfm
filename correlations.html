@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>INF552 - 2023 - PC 03</title>
+        <!-- https://d3js.org/ -->
+        <script type="text/javascript" src="js/d3.v7.min.js"></script>
+        <!-- https://vega.github.io/vega-lite/ -->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Your code -->
+        <script type="text/javascript" src="js/navbar.js"></script>
+        <script async src="js/correlations.js"></script>
+    </head>
+
+    <body onload="createViz(); openNav()">
+        <div id="mySidenav" class="sidenav" onmouseleave="closeNav()">
+            <h1 class="navmenu">Navigation Menu</h1>
+            <a>Network Maps</a>
+            <a href="metro.html">Metro Statistics</a>
+            <a href="linechart.html">Air Quality Line Chart</a>
+            <a href="correlations.html">Air Quality Correlation Plots</a>
+            <a href="pma.html">Air Quality Box Plot</a>
+        </div>
+          
+        <!-- Use any element to open the sidenav -->
+        <span id="navspan" onmouseenter="openNav()">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </span>
+        <div id="main">
+            <h1 class="title">The Paris Metro Project</h1>
+            <div class="content-container">
+                <h2 class="big-text">Air Quality Correlation Scatter Plots</h2>
+                <p class="small-text">
+                    With so many indicators, it is interesting to see how they relate to one another.
+                    The matrix of scatter plots below shows the correlation between air quality indicators.
+                </p>
+                <p class="small-text">
+                    The datapoints have been grouped per season, to analyse if the trends change during the year.
+                </p>
+                <label for="Year">Select a season:</label>
+                    <select id="SaisonSelector">
+                        <option value="All"> All </option>
+                        <option value="Winter"> Winter </option>
+                        <option value="Spring"> Spring</option>
+                        <option value="Summer"> Summer</option>
+                        <option value="Automn"> Automn</option>
+                    </select>
+                <div id = "viz"></div>
+            </div>
+        </div>
+      </div>
+    </body>
+
+</html>

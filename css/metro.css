@@ -1,0 +1,57 @@
+h1 {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+h3 {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+button img {
+    width: 40px;
+    height: 40px;
+}
+
+#stats,
+#bubblechart,
+#chart {
+    flex: auto;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#parisMap {
+    height: 40%;
+    padding: 0px;
+    flex: auto;
+}
+
+#piechart,
+#clickBubble {
+    height: 50%;
+    box-sizing: border-box;
+}
+
+#stationTitle {
+    margin-top: 5px;
+}
+
+#viewerDiv {
+    height: 50%;
+    padding: 0px;
+    border-bottom: solid;
+    border-width: 4px;
+    border-color: #282828;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    top: auto;
+}
+
+canvas { 
+    display: block; 
+    background-color: black
+}
